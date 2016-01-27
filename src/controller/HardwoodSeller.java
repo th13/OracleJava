@@ -17,8 +17,11 @@ public class HardwoodSeller {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
+        // Test WoodTyper
+        WoodItem t = WoodTyper.getWoodTypeInstance("Sawdust");
 
+        System.out.println(t);
 	}
 	
 	public void readInputFile(String inputFilePath){
