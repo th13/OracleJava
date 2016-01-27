@@ -1,0 +1,12 @@
+This is a new paragraph in a new file called book.txt. I'm not quite sure what
+I should really write here, so I'll make this paragraph short. Git is fun. Or is
+it?
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   book.txt
