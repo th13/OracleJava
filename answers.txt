@@ -1,0 +1,53 @@
+(a) How many commits have been done to the repository by the end of step 11?
+(5 points)
+
+2 additional commits have been made to the repo by step 11.
+
+
+(b) When was the file .gitignore modified last? (5 points)
+
+Thu Aug 20 18:05:41 2015
+in commit e60a392cec6c7d73a108f47988245846c5d0a3ec
+
+
+(c) List the files, which were in the repository on 08/21/2015 at 11:00PM. (5
+points)
+
+.classpath
+.gitattributes
+.gitignore
+.project
+README.txt.txt
+src/controller/HardwoodSeller.java
+src/model/WoodItem.java
+
+
+(d) How many times was each of the files inside the src folder modified? (5 points)
+
+controller/HardwoordSeller.java - no modifications since initial commit
+model/WoodItem.java - 1 modification since initial commit
+
+
+(e) What is the difference between git log and git status? (5 points)
+
+`git log` returns a listing of the entire commit history by all contributors to
+the repository. `git status` returns the current status of the repository
+based on local changes made on the machine where the command was issued.
+
+
+(f) What command would you use to see the commits where “main.java” was
+one of the commited files? (5 points)
+
+git log main.java
+
+
+(g) What command would you use to see the commits whose commit message
+contains the word “transaction”? (5 points)
+
+git log --grep='transaction'
+
+
+(h) What command would you use to see the commits made by “Lauren” between
+01/05/2016 and 02/16/2016? (5 points)
+
+git log --author=Lauren --since=01/05/2016 --until=02/16/2016
