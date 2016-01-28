@@ -1,5 +1,7 @@
 package model;
 
+import controller.WoodTyper;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -54,12 +56,17 @@ public class Order {
         theString += "Order for: " + customer.getName() + "\n";
         theString += "Delivery Address: " + customer.getAddress() + "\n";
         theString += "Date Placed: " + date + "\n";
-        theString += "List of Wood Ordered:" + "\n";
+        theString += "List of Wood Ordered (price/BF):" + "\n";
 
         Iterator it = orderItems.entrySet().iterator();
         while (it.hasNext()) {
             HashMap.Entry pair = (HashMap.Entry) it.next();
-            theString += "  - " + pair.getKey() + ": " + pair.getValue() + " BF\n";
+            theString += "  - " + pair.getKey() + ": " + pair.getValue() + " @ ";
+            try {
+                theString += WoodTyper.getWoodTypeInstanceOf(pair.getKey().toString()).getPriceFormatted() + "\n";
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         return theString;

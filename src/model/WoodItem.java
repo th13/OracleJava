@@ -3,6 +3,8 @@
  */
 package model;
 
+import java.text.NumberFormat;
+
 /**
  * @author Trevor Helms
  *
@@ -60,6 +62,16 @@ public class WoodItem {
 	 */
 	public Double getPrice() {
 		return price;
+	}
+
+	/**
+	 * Return the price for 1 Bare Foot in a currency formatted way
+	 * @return Currency formatted price
+     */
+	public String getPriceFormatted() {
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		String moneyString = formatter.format(price);
+		return moneyString;
 	}
 
 	/* (non-Javadoc)
