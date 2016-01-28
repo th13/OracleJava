@@ -12,10 +12,10 @@ import model.WoodType.*;
  */
 public class WoodTyper {
 
-    // Private constructor to make only static.
+    // Private constructor to display instantiation
     private WoodTyper() {}
 
-    public static WoodItem getWoodTypeInstance(String type) throws ClassNotFoundException {
+    public static WoodItem getWoodTypeInstanceOf(String type) throws ClassNotFoundException {
         type = type.replaceAll("\\s", "");
 
         switch(type) {

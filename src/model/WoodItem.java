@@ -16,7 +16,7 @@ public class WoodItem {
 	/**
 	 * Default constructor 
 	 */
-	public WoodItem(){
+	public WoodItem() {
 		this.type = "Empty";
 		this.baseDeliveryTime = 0.0;
 		this.price = 0.0;
@@ -25,12 +25,12 @@ public class WoodItem {
 	/**
 	 * Constructor of a WoodItem element with parameters
 	 * @param type Name of the wood type
-	 * @param daseDeliveryTime base delivery time
+	 * @param baseDeliveryTime base delivery time
 	 * @param price price per Bare Foot
 	 */
-	public WoodItem(String type, Double daseDeliveryTime, Double price) {
+	public WoodItem(String type, Double baseDeliveryTime, Double price) {
 		this.type = type;
-		this.baseDeliveryTime = daseDeliveryTime;
+		this.baseDeliveryTime = baseDeliveryTime;
 		this.price = price;
 	}
 
@@ -68,7 +68,7 @@ public class WoodItem {
 	 */
 	@Override
 	public String toString() {	
-		return "";
+		return type;
 	}
 	
 }
