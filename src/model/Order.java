@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,5 +48,20 @@ public class Order {
         this.orderItems.put(woodType, qty);
     }
 
+    @Override
+    public String toString() {
+        String theString = "";
+        theString += "Order for: " + customer.getName() + "\n";
+        theString += "Delivery Address: " + customer.getAddress() + "\n";
+        theString += "Date Placed: " + date + "\n";
+        theString += "List of Wood Ordered:" + "\n";
 
+        Iterator it = orderItems.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry) it.next();
+            theString += "  - " + pair.getKey() + ": " + pair.getValue() + " BF\n";
+        }
+
+        return theString;
+    }
 }
