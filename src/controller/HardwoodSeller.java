@@ -5,12 +5,10 @@ package controller;
 
 import model.Customer;
 import model.Order;
-import model.WoodItem;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +23,6 @@ public class HardwoodSeller {
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
         Order customerOrder = readInputFile("/Users/trevor1/Projects/OracleJava/src/example.txt");
-
         System.out.println(customerOrder);
     }
 
@@ -61,9 +58,5 @@ public class HardwoodSeller {
 
         return theOrder;
     }
-	
-	public Double deliveryTime(){
-		Double deliveryETA = 0.0;
-		return deliveryETA;
-	}
+
 }

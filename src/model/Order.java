@@ -2,6 +2,7 @@ package model;
 
 import controller.WoodTyper;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +25,51 @@ public class Order {
         this.customer = customer;
         this.date = date;
         this.orderItems = orderItems;
+    }
+
+    public Double getETA() {
+        Double eta = 0.0;
+        Double curr = 0.0;
+
+        Iterator it = orderItems.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry) it.next();
+            try {
+                WoodItem item = WoodTyper.getWoodTypeInstanceOf(pair.getKey().toString());
+                curr = item.getRealizedDeliveryTime(Integer.parseInt(pair.getValue().toString()));
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Get the max delivery time
+            if (curr > eta) {
+                eta = curr;
+            }
+        }
+
+        return eta;
+    }
+
+    public String getTotalPriceFormatted() {
+        Double total = 0.0;
+
+        Iterator it = orderItems.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry) it.next();
+            WoodItem item = null;
+            try {
+                item = WoodTyper.getWoodTypeInstanceOf(pair.getKey().toString());
+                total += item.getPrice();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(total);
+        return moneyString;
     }
 
     public Customer getCustomer() {
@@ -55,7 +101,7 @@ public class Order {
         String theString = "";
         theString += "Order for: " + customer.getName() + "\n";
         theString += "Delivery Address: " + customer.getAddress() + "\n";
-        theString += "Date Placed: " + date + "\n";
+        theString += "Date Placed: " + date + "\n\n";
         theString += "List of Wood Ordered (price/BF):" + "\n";
 
         Iterator it = orderItems.entrySet().iterator();
@@ -68,6 +114,9 @@ public class Order {
                 e.printStackTrace();
             }
         }
+
+        theString += "\nEstimated Delivery Time: " + getETA() + " hours\n";
+        theString += "Total Price: " + getTotalPriceFormatted() + "\n";
 
         return theString;
     }
