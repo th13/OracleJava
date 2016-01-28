@@ -22,7 +22,7 @@ public class HardwoodSeller {
 	 * @param args
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
-        Order customerOrder = readInputFile("/Users/trevor1/Projects/OracleJava/src/example.txt");
+        Order customerOrder = readInputFile(args[0]);
         System.out.println(customerOrder);
     }
 
